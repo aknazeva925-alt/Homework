@@ -1,9 +1,0 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(538,5): warning MSB8028: промежуточный каталог (x64\Debug\) содержит файлы, которые используются совместно с другим проектом (ConsoleApplication3.vcxproj).  Это может привести к ошибкам очистки и перестроения.
-  cinema.cpp
-  film.cpp
-D:\vs proects\ConsoleApplication3\ConsoleApplication3\film.cpp(11,15): warning C4244: return: преобразование "double" в "int", возможна потеря данных
-  film.h
-  Session.cpp
-  Создание кода...
-x64\Debug\film.obj : warning LNK4042: объект указан более одного раза; лишние не учитываются
-  ConsoleApplication3.vcxproj -> D:\vs proects\ConsoleApplication3\x64\Debug\lab2.exe
