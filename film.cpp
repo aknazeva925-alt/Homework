@@ -1,23 +1,23 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <string>
 #include <stdexcept>
 #include "film.h"
 
 using namespace std;
 
-//реализация методов классов Film, FilmCrew, DirectorPopularFilm
+//СЂРµР°Р»РёР·Р°С†РёСЏ РјРµС‚РѕРґРѕРІ РєР»Р°СЃСЃРѕРІ Film, FilmCrew, DirectorPopularFilm
 
 int Film::revenue() const {
 	return seats * (*ticket_price);
 }
 
 void Film::showCommon() const {
-	cout << "Фильм: " << *film_name << endl
-		<< "Жанр: " << *genre << endl
-		<< "Длительность (в минутах): " << *time << endl
-		<< "Стоимость билета: " << *ticket_price << " рублей" << endl
-		<< "Выручка с полного зала (" << seats << " мест): "
-		<< revenue() << " рублей" << endl;
+	cout << "Р¤РёР»СЊРј: " << *film_name << endl
+		<< "Р–Р°РЅСЂ: " << *genre << endl
+		<< "Р”Р»РёС‚РµР»СЊРЅРѕСЃС‚СЊ (РІ РјРёРЅСѓС‚Р°С…): " << *time << endl
+		<< "РЎС‚РѕРёРјРѕСЃС‚СЊ Р±РёР»РµС‚Р°: " << *ticket_price << " СЂСѓР±Р»РµР№" << endl
+		<< "Р’С‹СЂСѓС‡РєР° СЃ РїРѕР»РЅРѕРіРѕ Р·Р°Р»Р° (" << seats << " РјРµСЃС‚): "
+		<< revenue() << " СЂСѓР±Р»РµР№" << endl;
 }
 
 Film::Film(const string& nameFilm, const string& genre_,
@@ -38,7 +38,7 @@ Film::~Film() {
 
 void Film::setFilm_name(const string& nameFilm) {
 	if (nameFilm.empty()) {
-		throw invalid_argument("Поле не может быть пустым!");
+		throw invalid_argument("РџРѕР»Рµ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј!");
 	}
 	*film_name = nameFilm;
 }
@@ -48,7 +48,7 @@ string Film::getFilm_name() const {
 }
 void Film::setGenre(const string& genre_) {
 	if (genre_.empty()) {
-		throw invalid_argument("Поле не может быть пустым!");
+		throw invalid_argument("РџРѕР»Рµ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј!");
 	}
 	*genre = genre_;
 }
@@ -58,7 +58,7 @@ string Film::getGenre() const {
 
 void Film::setTime(int time_) {
 	if (time_ <= 0) {
-		throw invalid_argument("Длительность фильма не может быть меньше или равна 0.");
+		throw invalid_argument("Р”Р»РёС‚РµР»СЊРЅРѕСЃС‚СЊ С„РёР»СЊРјР° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РјРµРЅСЊС€Рµ РёР»Рё СЂР°РІРЅР° 0.");
 	}
 	*time = time_;
 }
@@ -71,7 +71,7 @@ void Film::setPrice(double price_) {
 		throw NegativePrice(price_);
 	}
 	if (price_ > 1500) {
-		throw out_of_range("Стоимость билета не может быть больше 1500.");
+		throw out_of_range("РЎС‚РѕРёРјРѕСЃС‚СЊ Р±РёР»РµС‚Р° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ 1500.");
 	}
 	*ticket_price = price_;
 }
@@ -93,22 +93,22 @@ FilmCrew::~FilmCrew()
 
 void FilmCrew::setNameDirector(const string nameDirector_) {
 	if (nameDirector_.empty()) {
-		throw invalid_argument("Поле не может быть пустым!");
+		throw invalid_argument("РџРѕР»Рµ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј!");
 	}
 	*nameDirector = nameDirector_;
 }
 
 void FilmCrew::setNameMainActor(const string nameMainActor_) {
 	if (nameMainActor_.empty()) {
-		throw invalid_argument("Поле не может быть пустым!");
+		throw invalid_argument("РџРѕР»Рµ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј!");
 	}
 	*nameMainActor = nameMainActor_;
 }
 
 void FilmCrew::showFilm() const {
 	showCommon();
-	cout << "Режиссёр: " << *nameDirector << endl
-		<< "Главная роль: " << *nameMainActor << endl << endl;
+	cout << "Р РµР¶РёСЃСЃС‘СЂ: " << *nameDirector << endl
+		<< "Р“Р»Р°РІРЅР°СЏ СЂРѕР»СЊ: " << *nameMainActor << endl << endl;
 }
 
 //_______________________________________________________
@@ -130,11 +130,11 @@ DirectorPopularFilm::~DirectorPopularFilm()
 
 void DirectorPopularFilm::setNameFilmDir(const string nameFilmDir_) {
 	if (nameFilmDir_.empty()) {
-		throw invalid_argument("Поле не может быть пустым!");
+		throw invalid_argument("РџРѕР»Рµ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј!");
 	}
 	*nameFilmDir = nameFilmDir_;
 }
 void DirectorPopularFilm::showFilm() const {
 	FilmCrew::showFilm();
-	cout << "Другой популярный фильм режиссера: " << *nameFilmDir << endl << endl;
+	cout << "Р”СЂСѓРіРѕР№ РїРѕРїСѓР»СЏСЂРЅС‹Р№ С„РёР»СЊРј СЂРµР¶РёСЃСЃРµСЂР°: " << *nameFilmDir << endl << endl;
 }

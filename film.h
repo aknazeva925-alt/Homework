@@ -1,15 +1,15 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <string>
 
 using namespace std;
 
-//для класса-исключения
+//РґР»СЏ РєР»Р°СЃСЃР°-РёСЃРєР»СЋС‡РµРЅРёСЏ
 class NegativePrice : public exception {
 private:
 	string message;
 public:
 	NegativePrice(double price) {
-		message = "Цена не может быть отрицательной.";
+		message = "Р¦РµРЅР° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅРѕР№.";
 	}
 	const char* what() const noexcept override {
 		return message.c_str();
@@ -21,7 +21,7 @@ class Film
 private:
 	string* film_name;
 	string* genre;
-	int* time; //в минутах
+	int* time; //РІ РјРёРЅСѓС‚Р°С…
 	double* ticket_price;
 
 protected:
@@ -31,11 +31,11 @@ protected:
 	void showCommon() const;
 
 public:
-	//конструктор 1
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ 1
 	Film(const string& nameFilm, const string& genre_,
 		int time_, double price_);
 
-	//деконструктор
+	//РґРµРєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	virtual ~Film();
 
 	//1 set & get
@@ -49,7 +49,7 @@ public:
 	int getTime() const;
 	//4 set & get
 	void setPrice(double price_);
-	//вывод
+	//РІС‹РІРѕРґ
 	virtual void showFilm() const = 0;
 };  
 
@@ -58,11 +58,11 @@ private:
 	string* nameDirector;
 	string* nameMainActor;
 public:
-	//конструктор
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	FilmCrew(const string& nameFilm, const string& genre_,
 		int time_, double price_,
 		const string& nameDirector_, const string& nameMainActor_);
-	//деконструктор
+	//РґРµРєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	~FilmCrew() override;
 	void setNameDirector(const string nameDirector_);
 	void setNameMainActor(const string nameMainActor_);
@@ -74,12 +74,12 @@ class DirectorPopularFilm : public FilmCrew {
 private:
 	string* nameFilmDir;
 public:
-	//конструктор
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	DirectorPopularFilm(const string& nameFilm, const string& genre_,
 		int time_, double price_,
 		const string& nameDirector_, const string& nameMainActor_,
 		const string& nameFilmDir_);
-	//деконструктор
+	//РґРµРєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
 	~DirectorPopularFilm() override;
 	void setNameFilmDir(const string nameFilmDir_);
 	void showFilm() const override;

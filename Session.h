@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <string>
 
 using namespace std;
@@ -10,12 +10,12 @@ class Session {
 private:
 	int* hallNumber;
 	string* startTime;
-	Film* film;           //поле род.класса (вложенное поле)
+	Film* film;           //РїРѕР»Рµ СЂРѕРґ.РєР»Р°СЃСЃР° (РІР»РѕР¶РµРЅРЅРѕРµ РїРѕР»Рµ)
 
 	Session(int hallNumber_, const string& time_, Film* film_);
 public:
 	~Session();
-		//--- статический метод
+		//--- СЃС‚Р°С‚РёС‡РµСЃРєРёР№ РјРµС‚РѕРґ
 	static Session* createSession(int hallNumber_, const string& time_, Film* film_);
 
 	void setHallNumber(int hallNum);
@@ -24,12 +24,12 @@ public:
 	int getHallNumber() const;
 	string getStartTime() const;
 
-	//---методы для дз10---
-	  //класс Film
+	//---РјРµС‚РѕРґС‹ РґР»СЏ РґР·10---
+	  //РєР»Р°СЃСЃ Film
 	void changePrice(double newPrice);
-	//класс FilmCrew
+	//РєР»Р°СЃСЃ FilmCrew
 	void changeDirName(const string& newDirector);
-	//класс DirectorPopularFilm
+	//РєР»Р°СЃСЃ DirectorPopularFilm
 	void changeDirFilm(const string& newDirFilm);
 	void showSession() const;
 };

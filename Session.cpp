@@ -1,11 +1,11 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <string>
 #include "Session.h"
 #include "film.h"
 
 using namespace std;
 
-//реализация методов класса Session
+//СЂРµР°Р»РёР·Р°С†РёСЏ РјРµС‚РѕРґРѕРІ РєР»Р°СЃСЃР° Session
 
 Session::Session(int hallNumber_, const string& time_, Film* film_) {
 	hallNumber = new int(hallNumber_);
@@ -18,19 +18,19 @@ Session::~Session() {
 }
 
 Session* Session::createSession(int hallNumber_, const string& time_, Film* film_) {
-    if (hallNumber_ <= 0) throw invalid_argument("Номер зала должен быть положительным!");
-    if (time_.empty()) throw invalid_argument("Время не может быть пустым!");
-    if (film_ == nullptr) throw invalid_argument("Указатель на фильм не может быть пустым!");
+    if (hallNumber_ <= 0) throw invalid_argument("РќРѕРјРµСЂ Р·Р°Р»Р° РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рј!");
+    if (time_.empty()) throw invalid_argument("Р’СЂРµРјСЏ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј!");
+    if (film_ == nullptr) throw invalid_argument("РЈРєР°Р·Р°С‚РµР»СЊ РЅР° С„РёР»СЊРј РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј!");
     return new Session(hallNumber_, time_, film_);
 }
 
 void Session::setHallNumber(int hallNum) {
-    if (hallNum <= 0) throw invalid_argument("Номер зала должен быть положительным!");
+    if (hallNum <= 0) throw invalid_argument("РќРѕРјРµСЂ Р·Р°Р»Р° РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рј!");
     *hallNumber = hallNum;
 }
 
 void Session::setStartTime(const string& time_) {
-    if (time_.empty()) throw invalid_argument("Время не может быть пустым");
+    if (time_.empty()) throw invalid_argument("Р’СЂРµРјСЏ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј");
     *startTime = time_;
 }
 
@@ -39,17 +39,17 @@ string Session::getStartTime() const { return *startTime; }
 
 void Session::changePrice(double newPrice) {
     film->setPrice(newPrice);
-    cout << "!!Цена билета на фильм изменена!!" << endl;
+    cout << "!!Р¦РµРЅР° Р±РёР»РµС‚Р° РЅР° С„РёР»СЊРј РёР·РјРµРЅРµРЅР°!!" << endl;
 }
 
 void Session::changeDirName(const string& newDirector) {
     FilmCrew* crewFilm = dynamic_cast<FilmCrew*>(film);
     if (crewFilm != nullptr) {
         crewFilm->setNameDirector(newDirector);
-        cout << endl << "!!Имя режиссера изменено.!!" << endl;
+        cout << endl << "!!РРјСЏ СЂРµР¶РёСЃСЃРµСЂР° РёР·РјРµРЅРµРЅРѕ.!!" << endl;
     }
     else {
-        cout << endl << "Ошибка.";
+        cout << endl << "РћС€РёР±РєР°.";
     }
 }
 
@@ -57,17 +57,17 @@ void Session::changeDirFilm(const string& newDirFilm) {
     DirectorPopularFilm* dirFilm = dynamic_cast<DirectorPopularFilm*>(film);
     if (dirFilm != nullptr) {
         dirFilm->setNameFilmDir(newDirFilm);
-        cout << endl << "!!Название популярного фильма режиссера изменено.!!" << endl;
+        cout << endl << "!!РќР°Р·РІР°РЅРёРµ РїРѕРїСѓР»СЏСЂРЅРѕРіРѕ С„РёР»СЊРјР° СЂРµР¶РёСЃСЃРµСЂР° РёР·РјРµРЅРµРЅРѕ.!!" << endl;
     }
     else {
-        cout << endl << "Ошибка.";
+        cout << endl << "РћС€РёР±РєР°.";
     }
 }
 
 void Session::showSession() const {
-    cout << endl << "--- ИНФОРМАЦИЯ О СЕАНСЕ ---" << endl;
-    cout << "Зал № " << *hallNumber << endl;
-    cout << "Время начала: " << *startTime << endl;
-    cout << "--- ИНФОРМАЦИЯ О ФИЛЬМЕ ---" << endl;
+    cout << endl << "--- РРќР¤РћР РњРђР¦РРЇ Рћ РЎР•РђРќРЎР• ---" << endl;
+    cout << "Р—Р°Р» в„– " << *hallNumber << endl;
+    cout << "Р’СЂРµРјСЏ РЅР°С‡Р°Р»Р°: " << *startTime << endl;
+    cout << "--- РРќР¤РћР РњРђР¦РРЇ Рћ Р¤РР›Р¬РњР• ---" << endl;
     film->showFilm();
 }
