@@ -1,8 +1,10 @@
+# Папки сборки и отладки
 Debug/
 Release/
 x64/
 x86/
 
+# Файлы Visual Studio
 .vs/
 *.user
 *.suo
